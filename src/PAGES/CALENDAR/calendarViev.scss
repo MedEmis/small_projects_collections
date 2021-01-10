@@ -1,0 +1,135 @@
+//calendar styles
+.calendar-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.calendar-table tr,
+.calendar-table td {
+	border: 1px solid rgba(200, 200, 200, 0.5);
+	font-weight: 600;
+}
+
+.calendar-month-prev {
+	background-color: rgba(200, 200, 200, 0.3);
+}
+
+.calendar-month-next {
+	background-color: rgba(200, 200, 200, 0.3);
+}
+
+.calendar-days-tr {
+	background: #7474bf;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #348ac7, #7474bf);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #348ac7, #7474bf);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color: #fff;
+	height: 7vh;
+}
+
+.calendar-day {
+	height: 6vh;
+	div {
+		display: block;
+	}
+	.day {
+		padding-top: 0.2em;
+	}
+	.event-round {
+		border-radius: 50%;
+		background: rgb(66, 133, 244);
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		color: #fff;
+	}
+}
+
+.calendar-toolbar {
+	height: 100px;
+	table {
+		width: 100%;
+	}
+
+	.button-group {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		&_button{
+		  font-size: 24px;
+		}
+	}
+
+	.btn {
+		background-color: #212121;
+		color: #fff;
+		border-radius: 1%;
+		margin: 0px;
+		height: 5vh;
+	}
+
+	input {
+		height: 3vh;
+		width: 60%;
+		border-top-left-radius: 10px;
+		box-shadow: none;
+		padding: 7px 12px;
+		font-size: 13px;
+		line-height: 1.5384616;
+		color: #333;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		transition: border-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+	}
+
+	input[type="date"]::-webkit-clear-button {
+		display: none;
+	}
+	.today {
+		font-size: 12px;
+	}
+}
+
+.calendar-selected-date {
+	height: 30px;
+	width: 30px;
+	border-radius: 5px;
+	background: #56ccf2 !important; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		rgb(80, 143, 226),
+		rgb(108, 205, 238)
+	) !important; /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		rgb(77, 146, 236),
+		rgb(102, 198, 230)
+	) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: #fff;
+}
+
+.calendar-holiday-prev,
+.calendar-holiday-next {
+	background-color: rgba(200, 200, 200, 0.3);
+}
+.calendar-holiday-current {
+	height: 30px;
+	width: 30px;
+	border-radius: 5px;
+	background: #fc8b52; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #fc4d50, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#fd5053,
+		#ff9966
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	color: #fff;
+}

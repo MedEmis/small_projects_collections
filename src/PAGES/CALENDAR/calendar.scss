@@ -1,0 +1,63 @@
+.calendar {
+	display: block;
+	width: 95%;
+	height: 100%;
+	background: rgb(71, 78, 95);
+	margin: 0 auto;
+	padding: 10px;
+	position: relative;
+	&__title {
+		font-size: 34px;
+		position: relative;
+		&_time-now {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			min-width: 300px;
+			width: auto;
+			border-radius: 5px;
+			height: 50px;
+			background: rgb(100, 97, 97);
+		}
+	}
+	&__buttonList {
+		width: 100%;
+		height: 60px;
+		background: rgb(51, 68, 126);
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom: 20px;
+		&_item {
+			width: 100px;
+			height: 40px;
+			border-radius: 5px;
+			outline-color: none;
+			border-bottom: 5px solid #242323;
+			color: #fff;
+			font-size: 18px;
+			background: rgb(28, 56, 99);
+			&:active {
+				border-bottom: 1px solid #292828;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+	&__sections{
+		display: flex;
+		&_todo{
+
+		}
+		&_view{
+			padding: 0 20px;
+		}
+	}
+	&__todo-list{
+		width: 700px;
+		min-height: 300px;
+		height: auto;
+		background: rgb(212, 197, 197);
+	}
+}

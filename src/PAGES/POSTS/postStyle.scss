@@ -1,0 +1,125 @@
+.list-of-posts {
+	width: 1500px;
+	height: 80vh;
+	background: rgb(107, 103, 103);
+	padding: 30px;
+	margin: 0 auto;
+	overflow: auto;
+	position: relative;
+	&__wrapper {
+		height: auto;
+	}
+	&__panel {
+		position: fixed;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		top: 150px;
+		right: 200px;
+		z-index: 20;
+		outline: none;
+		&_button {
+			height: 50px;
+			min-width: 150px;
+			width: auto;
+			margin: 10px;
+			border-radius: 5px;
+			background: rgb(44, 34, 128);
+			color: #fff;
+			font-size: 18px;
+			border-bottom: 5px solid #242323;
+			&:active {
+				border-bottom: 1px solid #292828;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+}
+.post-item {
+	position: relative;
+	width: 1000px;
+	height: auto;
+	background: rgb(189, 178, 178);
+	margin-bottom: 20px;
+	font-size: 16px;
+	border-radius: 30px;
+	overflow: auto;
+	transition: 0.5s linear;
+	&__body {
+		background: rgb(65, 62, 62);
+		&_section-wrapper {
+			display: flex;
+			min-height: 100px;
+		}
+		&_section {
+			padding: 10px;
+			&__id {
+				flex: 0 0 20%;
+				background: rgb(53, 43, 43);
+			}
+			&__text {
+				background: rgb(65, 62, 62);
+				text-align-last: left;
+				padding: 10px;
+			}
+		}
+		&_title {
+			background: rgb(131, 120, 120);
+			text-transform: uppercase;
+			font-weight: 900;
+			padding: 5px;
+			position: relative;
+			&__delete {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				font-size: 14px;
+				padding-left: 30px;
+				color: rgb(146, 9, 9);
+				cursor: pointer;
+			}
+		}
+		&_logId {
+		}
+		&_userId {
+		}
+		&_text {
+		}
+	}
+	&__comments {
+		float: right;
+		width: 70%;
+		background: rgb(90, 84, 84);
+		padding: 10px;
+		&_item {
+			background: rgb(97, 66, 66);
+			margin-bottom: 10px;
+			min-height: 100px;
+			height: auto;
+			border-radius: 15px;
+			&__section-wrapper {
+				display: flex;
+			}
+			&__section {
+				position: relative;
+				padding: 10px;
+				&_absolute {
+					position: absolute;
+					flex: 0 0 20%;
+					left: 5%;
+					border-radius: 10px;
+					min-width: 220px;
+					width: auto;
+					max-width: 220px;
+					background: rgb(110, 100, 100);
+				}
+			}
+			&__text {
+				text-align-last: left;
+			}
+		}
+	}
+}
