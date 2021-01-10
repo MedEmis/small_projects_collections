@@ -8,6 +8,7 @@ export const CALENDAR_ACTIONS = {
 
 }
 
+
 const calendarInitialState = {
 	monthArray: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 	toDoItem: [],
