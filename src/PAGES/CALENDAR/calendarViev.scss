@@ -1,4 +1,7 @@
 //calendar styles
+.cks-calendar{
+	user-select: none;
+}
 .calendar-table {
 	width: 100%;
 	border-collapse: collapse;
@@ -51,7 +54,7 @@
 }
 
 .calendar-toolbar {
-	height: 100px;
+	height: 80px;
 	table {
 		width: 100%;
 	}

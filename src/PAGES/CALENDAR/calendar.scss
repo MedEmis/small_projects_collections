@@ -45,19 +45,32 @@
 			}
 		}
 	}
-	&__sections{
+	&__sections {
 		display: flex;
-		&_todo{
-
+		&_todo {
 		}
-		&_view{
+		&_view {
 			padding: 0 20px;
 		}
 	}
-	&__todo-list{
+	&__todo-wrapper {
 		width: 700px;
-		min-height: 300px;
+		min-height: 480px;
 		height: auto;
+		border-radius: 10px;
 		background: rgb(212, 197, 197);
+	}
+	&__todo-list {
+		text-align: left;
+		padding: 5px  5px 5px 40px;
+		&_item {
+			border-radius: 10px;
+			padding: 3px;
+			color: #000;
+			background: rgb(177, 174, 174);
+			margin-bottom: 5px;
+			&__time{color: rgb(202, 87, 20);font-weight: 700;}
+			&__event{font-weight: 700;}
+		}
 	}
 }
