@@ -2,7 +2,9 @@
 
 
 export const CALENDAR_ACTIONS = {
-	ADD_TODO_ITEM: "ADD_TODO_ITEM",
+	SET_TODO_ITEM: "SET_TODO_ITEM",
+	GET_TODO_ITEM: "GET_TODO_ITEM",
+	DELETE_TODO_ITEM: "DELETE_TODO_ITEM",
 	SET_TIME: "SET_TIME",
 	SET_DATE: "SET_DATE",
 
@@ -19,10 +21,20 @@ const calendarInitialState = {
 export const calendarReducer = (state = calendarInitialState, action) => {
 	switch (action.type) {
 
-		case CALENDAR_ACTIONS.ADD_TODO_ITEM:
+		case CALENDAR_ACTIONS.GET_TODO_ITEM:
 			return {
 				...state,
 				toDoItem: [...state.toDoItem, action.payload]
+			}
+		case CALENDAR_ACTIONS.SET_TODO_ITEM:
+			return {
+				...state,
+				toDoItem: [...state.toDoItem,].concat(action.payload)
+			}
+		case CALENDAR_ACTIONS.DELETE_TODO_ITEM:
+			return {
+				...state,
+				toDoItem: [...state.toDoItem.filter(todo => todo.id !== action.payload)]
 			}
 		case CALENDAR_ACTIONS.SET_TIME:
 			return {

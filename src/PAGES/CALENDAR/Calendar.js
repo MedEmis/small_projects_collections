@@ -3,6 +3,8 @@ import { CALENDAR_ACTIONS, calendarReducer } from './calendarReducer';
 import { Loader } from '../Loader';
 import { CalendarTOdoList } from './CalendarTOdoList';
 import { CalendarView } from './CalendarView';
+import { API } from './../../API';
+import { PopUpforTime } from './PopupForTime';
 import "./calendar.scss"
 
 const MonthButton = ({ name }) => <button className="calendar__buttonList_item">{name}</button>
@@ -10,6 +12,22 @@ const MonthButton = ({ name }) => <button className="calendar__buttonList_item">
 const CalendarBox = () => {
 	const [state, dispatch] = useReducer(calendarReducer)
 
+	const getTodos = () => {
+		API.getToDos().then(response => dispatch({ type: CALENDAR_ACTIONS.SET_TODO_ITEM, payload: response.data }))
+	}
+	const addTodos = () => {
+		let date = "10.12.2020"
+		let time = "10:00"
+		let event = "do something"
+		API.setToDos(time, date, event).then(response => dispatch({ type: CALENDAR_ACTIONS.SET_TODO_ITEM, payload: response.data }))
+	}
+	const deleteTodos = (id) => {
+		//console.log("deleted")
+		API.deleteToDos(id).then(response => dispatch({ type: CALENDAR_ACTIONS.DELETE_TODO_ITEM, payload: id }))
+	}
+	useEffect(() => {
+		getTodos()
+	}, [])
 	useEffect(() => {//TIME
 		const intervalId = setInterval(() => {  //assign interval to a variable to clear it
 			dispatch({ type: CALENDAR_ACTIONS.SET_TIME })
@@ -18,11 +36,6 @@ const CalendarBox = () => {
 		return () => clearInterval(intervalId); //This is important
 	}, []);
 
-	let db = [
-		{ "time": "10:02", "event": "do something" },
-		{ "time": "10:02", "event": "do something" },
-		{ "time": "10:05", "event": "do something22" }
-	]
 
 	return (
 		<div className="calendar">
@@ -30,6 +43,7 @@ const CalendarBox = () => {
 			<div className="calendar__title_time-now">
 				<span>{`Time now: ${state ? state.currentTime : "..."} Date now: ${state ? state.currentDate : "..."}`}</span>
 			</div>
+			<button className="calendar__title_add-todo" onClick={addTodos}>Add nev event</button>
 			<div className="calendar__buttonList">
 				{
 					state
@@ -39,14 +53,22 @@ const CalendarBox = () => {
 			</div>
 			<div className="calendar__sections">
 				<div className="calendar__sections_todo">
-					<CalendarTOdoList items={db} />
+					{state
+						? <CalendarTOdoList items={state.toDoItem} toDelete={deleteTodos} />
+						: <Loader />
+					}
+					<PopUpforTime />
 				</div>
 				<div className="calendar__sections_view">
-					<CalendarView addToDo={() => dispatch({ type: CALENDAR_ACTIONS.ADD_TODO_ITEM })} />
+					<CalendarView />
 				</div>
 			</div>
+			
 		</div>
 	)
 }
+
+
+
 
 export default memo(CalendarBox)

@@ -6,11 +6,11 @@ import { ListOfPosts } from './POSTS/ListOfPosts';
 export const routes = [{
 	path: 'Posts',
 	component: ListOfPosts,
-	text: "Does not have Redux or global state. Was user local useReducer. Getting data from jsonplaceholder. "
+	text: "Does not have Redux or global state. Was used local useReducer. Getting data from jsonplaceholder. "
 }, {
 	path: 'Organizer',
 	component: CalendarBox,
-	text: "Does not have Redux or global state. Was user local useReducer. Getting data from jsonplaceholder server. "
+	text: "Does not have Redux or global state. Was used local useReducer. Getting data from jsonplaceholder server. "
 }, {
 	path: 'empty1',
 	component: null,

@@ -19,6 +19,27 @@
 			height: 50px;
 			background: rgb(100, 97, 97);
 		}
+		&_add-todo {
+			outline: none;
+			position: absolute;
+			top: 30px;
+			right: 30px;
+			min-width: 300px;
+			width: auto;
+			border-radius: 5px;
+			height: 50px;
+			background: rgb(204, 111, 57);
+			color: #fff;
+			font-weight: 900;
+			font-size: 18px;
+			border-bottom: 5px solid rgb(41, 38, 38);
+			&:active {
+				border-bottom: 1px solid #292828;
+			}
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 	&__buttonList {
 		width: 100%;
@@ -47,30 +68,118 @@
 	}
 	&__sections {
 		display: flex;
+		justify-content: center;
+		align-items: stretch;
 		&_todo {
+			flex: 0 0 50%;
+			position: relative;
+			min-height: 480px;
+			max-height: 600px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 		&_view {
+			flex: 1 1 auto;
 			padding: 0 20px;
 		}
 	}
 	&__todo-wrapper {
-		width: 700px;
-		min-height: 480px;
-		height: auto;
+		width: 100%;
+		height: 100%;
 		border-radius: 10px;
 		background: rgb(212, 197, 197);
+		overflow: auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 	&__todo-list {
+		width: 90%;
+		height: 90%;
 		text-align: left;
-		padding: 5px  5px 5px 40px;
+		padding: 0 10px;
 		&_item {
 			border-radius: 10px;
 			padding: 3px;
 			color: #000;
 			background: rgb(177, 174, 174);
 			margin-bottom: 5px;
-			&__time{color: rgb(202, 87, 20);font-weight: 700;}
-			&__event{font-weight: 700;}
+			&__time {
+				color: rgb(202, 87, 20);
+				font-weight: 700;
+			}
+			&__event {
+				font-weight: 700;
+				word-wrap: break-word;
+			}
+			&__delete {
+				float: right;
+				cursor: pointer;
+			}
 		}
 	}
+	&__popup {
+		position: absolute;
+		z-index: 1000;
+		top: 50px;
+		left: 50px;
+		width: 300px;
+		height: auto;
+		min-height:250px ;
+		background: rgb(6, 24, 49);
+		display: block;
+		padding: 10px;
+		text-align: center;
+		border-radius: 10px;
+		border: 2px solid #e95029;
+		color: #fff;
+		font-size: 24px;
+		&_inputs {
+			padding: 10px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: stretch;
+			position: relative;
+			&__input {
+				height: auto;
+				padding: 3px;
+				margin-bottom: 5px;
+				max-width: 98%;	
+				min-width: 98%;	
+				max-height: 300px;
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+		&_buttons {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			&__button {
+				height: 25px;
+				width: 80px;
+				border-radius: 5px;
+				border-bottom: 3px solid #292828;
+				&:active {
+					border-bottom: 1px solid #292828;
+				}
+				&:focus {
+					outline: none;
+				}
+			}
+		}
+		&_drag{
+			width: 100%;
+			height: 10px;
+			background: rgb(31, 36, 56);
+			cursor: move;
+			border-radius: 20px;
+			border-bottom: 2px solid #222;
+		}
+	}
+}
+.error-span {
+	color: red;
 }
