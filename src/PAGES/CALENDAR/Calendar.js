@@ -18,7 +18,7 @@ const CalendarBox = () => {
 		return () => clearInterval(intervalId); //This is important
 	}, []);
 
-	let dd = [
+	let db = [
 		{ "time": "10:02", "event": "do something" },
 		{ "time": "10:02", "event": "do something" },
 		{ "time": "10:05", "event": "do something22" }
@@ -39,7 +39,7 @@ const CalendarBox = () => {
 			</div>
 			<div className="calendar__sections">
 				<div className="calendar__sections_todo">
-					<CalendarTOdoList items={dd} />
+					<CalendarTOdoList items={db} />
 				</div>
 				<div className="calendar__sections_view">
 					<CalendarView addToDo={() => dispatch({ type: CALENDAR_ACTIONS.ADD_TODO_ITEM })} />

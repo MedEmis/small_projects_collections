@@ -35,7 +35,6 @@ export const ListOfPosts = memo(() => {
 	useEffect(() => {
 		GetData()
 	}, []);
-	console.log(scrollPercentage)
 	return (
 		<div className="list-of-posts" ref={scrollRef}
 			onWheel={(e) => addPostsonScroll(e)}>
