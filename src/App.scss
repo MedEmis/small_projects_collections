@@ -3,6 +3,7 @@
 	min-height: 100vh;
 	background-color: #282c34;
 	outline: none;
+	overflow: hidden;
 }
 
 .App-logo {
@@ -28,6 +29,7 @@
 	height: 100px;
 	background: rgb(74, 75, 124);
 	padding: 10px;
+	user-select: none;
 	&__button-list {
 		display: flex;
 		justify-content: space-around;

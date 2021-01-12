@@ -5,8 +5,10 @@ export const CALENDAR_ACTIONS = {
 	SET_TODO_ITEM: "SET_TODO_ITEM",
 	GET_TODO_ITEM: "GET_TODO_ITEM",
 	DELETE_TODO_ITEM: "DELETE_TODO_ITEM",
+	SET_CHOSEN_DATE: "SET_CHOSEN_DATE",
 	SET_TIME: "SET_TIME",
 	SET_DATE: "SET_DATE",
+	TOGGLE_MODAL_FORM: "TOGGLE_MODAL_FORM"
 
 }
 
@@ -16,11 +18,12 @@ const calendarInitialState = {
 	toDoItem: [],
 	currentTime: null,
 	currentDate: null,
+	chosenDate: null,
+	modalForm: false
 }
 
 export const calendarReducer = (state = calendarInitialState, action) => {
 	switch (action.type) {
-
 		case CALENDAR_ACTIONS.GET_TODO_ITEM:
 			return {
 				...state,
@@ -45,6 +48,16 @@ export const calendarReducer = (state = calendarInitialState, action) => {
 			return {
 				...state,
 				currentDate: new Date().toLocaleDateString()
+			}
+		case CALENDAR_ACTIONS.SET_CHOSEN_DATE:
+			return {
+				...state,
+				chosenDate: action.payload
+			}
+		case CALENDAR_ACTIONS.TOGGLE_MODAL_FORM:
+			return {
+				...state,
+				modalForm: !state.modalForm
 			}
 		default:
 			return state

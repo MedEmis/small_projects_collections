@@ -15,11 +15,9 @@ const CalendarBox = () => {
 	const getTodos = () => {
 		API.getToDos().then(response => dispatch({ type: CALENDAR_ACTIONS.SET_TODO_ITEM, payload: response.data }))
 	}
-	const addTodos = () => {
-		let date = "10.12.2020"
-		let time = "10:00"
-		let event = "do something"
-		API.setToDos(time, date, event).then(response => dispatch({ type: CALENDAR_ACTIONS.SET_TODO_ITEM, payload: response.data }))
+	const addTodos = (time, text) => {
+		let date = state.chosenDate
+		API.setToDos(time, date, text).then(response => dispatch({ type: CALENDAR_ACTIONS.SET_TODO_ITEM, payload: response.data }))
 	}
 	const deleteTodos = (id) => {
 		//console.log("deleted")
@@ -43,7 +41,8 @@ const CalendarBox = () => {
 			<div className="calendar__title_time-now">
 				<span>{`Time now: ${state ? state.currentTime : "..."} Date now: ${state ? state.currentDate : "..."}`}</span>
 			</div>
-			<button className="calendar__title_add-todo" onClick={addTodos}>Add nev event</button>
+			<button className="calendar__title_add-todo"
+				onClick={() => dispatch({ type: CALENDAR_ACTIONS.TOGGLE_MODAL_FORM })}>Add nev event</button>
 			<div className="calendar__buttonList">
 				{
 					state
@@ -57,13 +56,16 @@ const CalendarBox = () => {
 						? <CalendarTOdoList items={state.toDoItem} toDelete={deleteTodos} />
 						: <Loader />
 					}
-					<PopUpforTime />
+					{state
+						? state.modalForm && <PopUpforTime getData={(time, text) => addTodos(time, text)} close={() => dispatch({ type: CALENDAR_ACTIONS.TOGGLE_MODAL_FORM })} />
+						: null
+					}
 				</div>
 				<div className="calendar__sections_view">
-					<CalendarView />
+					<CalendarView getDataTime={date => dispatch({ type: CALENDAR_ACTIONS.SET_CHOSEN_DATE, payload: date })} />
 				</div>
 			</div>
-			
+
 		</div>
 	)
 }

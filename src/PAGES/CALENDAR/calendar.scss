@@ -49,6 +49,7 @@
 		justify-content: space-around;
 		align-items: center;
 		margin-bottom: 20px;
+		user-select: none;
 		&_item {
 			width: 100px;
 			height: 40px;
@@ -98,7 +99,7 @@
 		width: 90%;
 		height: 90%;
 		text-align: left;
-		padding: 0 10px;
+		overflow: auto;
 		&_item {
 			border-radius: 10px;
 			padding: 3px;
@@ -122,8 +123,8 @@
 	&__popup {
 		position: absolute;
 		z-index: 1000;
-		top: 50px;
-		left: 50px;
+		top: 0px;
+		right: 0px;
 		width: 300px;
 		height: auto;
 		min-height:250px ;

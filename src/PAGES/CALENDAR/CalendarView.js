@@ -107,8 +107,9 @@ export class CalendarView extends React.Component {
 		})
 		//////////////////////////////console.log("eventIndex", this.eventIndex)
 	}
-	componentWillMount() {
+	componentDidMount() {
 		this.updateEventIndex()
+		this.props.getDataTime(this.state.selectedDate.toLocaleDateString())
 	}
 	renderDays() {
 		let currentMonth = parseInt(this.state.currentView.getMonth())
@@ -223,8 +224,8 @@ export class CalendarView extends React.Component {
 					let sd = new Date(y.dateString);
 					/////////////////////////////console.log(y)
 					this.setState({ selectedDate: y.date }, () => {
-						if (this.props.onSelectionChange) {
-							this.props.onSelectionChange(y.date)
+						if (this.props.getDataTime) {
+							this.props.getDataTime(y.date.toLocaleDateString())
 						}
 					})
 				}}>
@@ -264,22 +265,23 @@ export class CalendarView extends React.Component {
 							</td>
 							<td width="100" align="right">
 								<div className="button-group">
-									<input type="text" disabled value={selectedDate} style={{ width: "35%" }}></input>
+									<input type="text" disabled value={selectedDate} style={{ width: "35%" }} ></input>
 									<button className="btn px-2" onClick={() => {
 										this.setState(prev => {
 											prev.currentView.setMonth(prev.currentView.getMonth() - 1)
 											return prev;
 										})
-									}}><i className="button-group_button">PREVIOUS</i></button>
+									}}><i className="button-group_button">{"<MONTH"}</i></button>
 									<button className="button-group_button btn today " onClick={() => {
 										this.setState({ currentView: new Date(), selectedDate: new Date() })
+										this.props.getDataTime(this.state.selectedDate)
 									}}><i className="button-group_button">TODAY</i></button>
 									<button className="btn px-2" onClick={() => {
 										this.setState(prev => {
 											prev.currentView.setMonth(prev.currentView.getMonth() + 1)
 											return prev;
 										})
-									}}><i className="button-group_button">NEXT</i></button></div>
+									}}><i className="button-group_button">{"MONTH>"}</i></button></div>
 							</td>
 						</tr>
 					</table>
